@@ -1,54 +1,77 @@
-site_name: satcube
-repo_url: https://github.com/csaybar/satcube
-site_url: https://csaybar.github.io/satcube
-site_description: This is a template repository for Python projects that use Poetry for their dependency management.
-site_author: Cesar Aybar
-edit_uri: edit/main/docs/
-repo_name: csaybar/satcube
-copyright: Maintained by <a href="https://csaybar.com">Florian</a>.
+docs_dir: .
 
-nav:
-  - Home: index.md
-  - Modules: modules.md
-plugins:
-  - search
-  - mkdocstrings:
-      handlers:
-        python:
-            setup_commands:
-                - import sys
-                - sys.path.append('../')
+# Project information
+site_name: satcube
+site_url: https://csaybar.github.io/satcube
+site_author: Cesar Aybar
+site_description: Satcube is a Python package for managing Sentinel-2 satellite data cubes.
+
+# Repository
+repo_url: https://github.com/csaybar/satcube
+repo_name: satcube
+use_directory_urls: false
+
+# Configuration
 theme:
   name: material
-  feature:
-    tabs: true
+  language: en
   palette:
-    - media: "(prefers-color-scheme: light)"
-      scheme: default
-      primary: white
-      accent: deep orange
-      toggle:
-        icon: material/brightness-7
-        name: Switch to dark mode
-    - media: "(prefers-color-scheme: dark)"
-      scheme: slate
+    - scheme: default
       primary: black
-      accent: deep orange
+      accent: black
       toggle:
-        icon: material/brightness-4
+        icon: material/toggle-switch-off-outline
+        name: Switch to dark mode
+    - scheme: slate
+      primary: '#201357'
+      accent: white
+      toggle:
+        icon: material/toggle-switch
         name: Switch to light mode
-  icon:
-    repo: fontawesome/brands/github
+  font:
+    text: Roboto
+    code: Roboto Mono
+  logo: https://huggingface.co/datasets/JulioContrerasH/DataMLSTAC/resolve/main/logo_satcube.png
+  favicon: https://huggingface.co/datasets/JulioContrerasH/DataMLSTAC/resolve/main/logo_satcube.png
+  features:
+    - navigation.instant
+    - navigation.tabs
+    - navigation.top
+    - navigation.expand
+    - navigation.indexes
+    - header.autohide 
 
-extra:
-  social:
-    - icon: fontawesome/brands/github
-      link: https://github.com/csaybar/satcube
-    - icon: fontawesome/brands/python
-      link: https://pypi.org/project/satcube
+# Page tree
+nav:
+  - Home: 
+    - README.md
+    - Contributing: CONTRIBUTING.md
+    - Changelog: CHANGELOG.md
+    - Code of conduct: CODE_OF_CONDUCT.md
+    
+# Plugins
+plugins:
+  - search
+  - same-dir
+  - mkdocstrings 
+  - awesome-pages
 
 markdown_extensions:
   - toc:
       permalink: true
-  - pymdownx.arithmatex:
-      generic: true
+  - pymdownx.highlight
+  - pymdownx.superfences
+  # - pymdownx.copybutton
+  - pymdownx.arithmatex
+  - pymdownx.tabbed
+  - mdx_truly_sane_lists
+  - pymdownx.tasklist
+
+
+# Extra CSS
+extra_css:
+  - docs/style/style.css
+
+# Extra JavaScript
+extra_javascript:
+  - docs/js/copybutton.js
