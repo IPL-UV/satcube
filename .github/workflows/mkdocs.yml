@@ -1,7 +1,7 @@
 name: deploy
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "master" ]
     
   workflow_dispatch:
   
@@ -29,4 +29,3 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./site
 
-          
